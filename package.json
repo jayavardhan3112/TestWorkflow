@@ -1,0 +1,12 @@
+{
+  "name": "testworkflow",
+  "version": "1.1.0",
+  "description": "## Testing",
+  "main": "release.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,33 @@
+name: Release Final
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+      - name: Install the Dependencies
+        uses: npm ci
+      - name: End message
+        uses: echo "All Done!!"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run build
+      - name: Run Release
+        uses: npm run release --ci
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      # - run: npx semantic-release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
