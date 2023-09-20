@@ -1,4 +1,4 @@
-name: Release
+name: Test
 
 on:
   pull_request:
@@ -6,11 +6,7 @@ on:
       - main
 
 jobs:
-  release:
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +15,8 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: rm -rf node_modules
+      - uses: ./
+      - uses: ./
+        with:
+          person: "Batman"
