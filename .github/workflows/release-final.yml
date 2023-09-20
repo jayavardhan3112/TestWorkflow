@@ -16,16 +16,16 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
       - name: Install the Dependencies
-        uses: npm ci
+        run: npm ci
       - name: End message
-        uses: echo "All Done!!"
+        run: echo "All Done!!"
       # - uses: actions/setup-node@v2
       #   with:
       #     node-version: 16
       - name: Run Release
-        uses: npm run release --ci
+        run: npm run release --ci
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - run: npx semantic-release
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
