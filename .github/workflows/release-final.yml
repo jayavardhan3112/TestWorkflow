@@ -19,11 +19,9 @@ jobs:
         uses: npm ci
       - name: End message
         uses: echo "All Done!!"
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm run build
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 16
       - name: Run Release
         uses: npm run release --ci
         env:
