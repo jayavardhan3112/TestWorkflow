@@ -23,20 +23,20 @@ jobs:
         run: |
           git config --global user.email "jayavardhan3112@gmail.com"
           git config --global user.name "jayavardhan3112"
-      # - name: Initialize NPM config
-      #   run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Initialize NPM config
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: End message
         run: echo "All Done!!"
       # - uses: actions/setup-node@v2
       #   with:
       #     node-version: 16
-      - name: Run Release
-        run: npm run release --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Run Release
+      #   run: npm run release --ci
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # - run: npx semantic-release
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
